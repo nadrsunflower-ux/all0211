@@ -1,65 +1,149 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import SlideTitle from "@/components/slides/SlideTitle";
+import SlideEventSection from "@/components/slides/SlideEventSection";
+import SlideEventMonthly from "@/components/slides/SlideEventMonthly";
+import SlideEventJanuary from "@/components/slides/SlideEventJanuary";
+import SlideEventKPI from "@/components/slides/SlideEventKPI";
+import SlideMarketingSection from "@/components/slides/SlideMarketingSection";
+import SlideMarketingMonthly from "@/components/slides/SlideMarketingMonthly";
+import SlideMarketingSite from "@/components/slides/SlideMarketingSite";
+import SlideMarketingPromo from "@/components/slides/SlideMarketingPromo";
+import SlideMarketingReels from "@/components/slides/SlideMarketingReels";
+import SlideMarketingInfluencer from "@/components/slides/SlideMarketingInfluencer";
+import SlideMarketingPhotozone from "@/components/slides/SlideMarketingPhotozone";
+import SlideMarketingKPI1 from "@/components/slides/SlideMarketingKPI1";
+import SlideMarketingKPI2 from "@/components/slides/SlideMarketingKPI2";
+import SlideMarketingKPI3 from "@/components/slides/SlideMarketingKPI3";
+import SlideMarketingKPI4 from "@/components/slides/SlideMarketingKPI4";
+import SlideEnd from "@/components/slides/SlideEnd";
+
+const slides = [
+  SlideTitle,
+  SlideEventSection,
+  SlideEventMonthly,
+  SlideEventJanuary,
+  SlideEventKPI,
+  SlideMarketingSection,
+  SlideMarketingMonthly,
+  SlideMarketingSite,
+  SlideMarketingPromo,
+  SlideMarketingReels,
+  SlideMarketingInfluencer,
+  SlideMarketingPhotozone,
+  SlideMarketingKPI1,
+  SlideMarketingKPI2,
+  SlideMarketingKPI3,
+  SlideMarketingKPI4,
+  SlideEnd,
+];
 
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (index < 0 || index >= slides.length) return;
+      setDirection(index > current ? 1 : -1);
+      setCurrent(index);
+    },
+    [current]
+  );
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        next();
+      }
+      if (e.key === "ArrowLeft" || e.key === "Backspace") {
+        e.preventDefault();
+        prev();
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [next, prev]);
+
+  const CurrentSlide = slides[current];
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="w-screen h-screen bg-[#fff5f9] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-full max-w-[177.78vh] max-h-[56.25vw]">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={current}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="absolute inset-0"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <CurrentSlide />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 z-50">
+          <button
+            onClick={prev}
+            disabled={current === 0}
+            className="w-7 h-7 rounded-full bg-pink-400/80 text-white flex items-center justify-center hover:bg-pink-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-xs"
           >
-            Documentation
-          </a>
+            &#9664;
+          </button>
+
+          <div className="flex gap-1">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === current
+                    ? "bg-pink-500 w-5"
+                    : "bg-pink-300/50 hover:bg-pink-300"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            disabled={current === slides.length - 1}
+            className="w-7 h-7 rounded-full bg-pink-400/80 text-white flex items-center justify-center hover:bg-pink-500 transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-xs"
+          >
+            &#9654;
+          </button>
         </div>
-      </main>
+
+        {/* Slide counter */}
+        <div className="absolute top-3 right-4 text-pink-400 text-xs font-medium z-50">
+          {current + 1} / {slides.length}
+        </div>
+      </div>
     </div>
   );
 }
