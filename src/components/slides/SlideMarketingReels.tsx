@@ -32,12 +32,7 @@ export default function SlideMarketingReels() {
 
       <div className="flex gap-6 flex-1 min-h-0">
         {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="w-[35%] flex items-center justify-center"
-        >
+        <div className="w-[35%] flex items-center justify-center">
           <div className="relative w-full h-full rounded-2xl overflow-hidden border border-pink-100 shadow-lg shadow-pink-100/50 bg-gray-50">
             <Image
               src="/images/m3.jpg"
@@ -46,7 +41,7 @@ export default function SlideMarketingReels() {
               className="object-contain"
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Description */}
         <motion.div

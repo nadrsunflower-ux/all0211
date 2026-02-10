@@ -5,15 +5,6 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 
 export default function SlideMarketingPhotozone() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.12 } },
-  };
-  const item = {
-    hidden: { opacity: 0, y: 15 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <div className="w-full h-full bg-white flex flex-col px-10 py-7 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-pink-400 to-pink-600" />
@@ -39,14 +30,9 @@ export default function SlideMarketingPhotozone() {
         악센트 아이디 매장 포토존 리뉴얼
       </motion.h2>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="flex-1 flex gap-4 min-h-0"
-      >
+      <div className="flex-1 flex gap-4 min-h-0">
         {/* Card 1 - 악센트 VER */}
-        <motion.div variants={item} className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0">
           <Card className="h-full border-pink-200 bg-white flex flex-col overflow-hidden">
             <div className="relative flex-1 min-h-0">
               <Image
@@ -65,10 +51,10 @@ export default function SlideMarketingPhotozone() {
               </div>
             </div>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Card 2 - 봄 VER */}
-        <motion.div variants={item} className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0">
           <Card className="h-full border-pink-200 bg-white flex flex-col overflow-hidden">
             <div className="relative flex-1 min-h-0">
               <Image
@@ -86,10 +72,10 @@ export default function SlideMarketingPhotozone() {
               </div>
             </div>
           </Card>
-        </motion.div>
+        </div>
 
         {/* Card 3 - 화이트 포토존 */}
-        <motion.div variants={item} className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0">
           <Card className="h-full border-pink-200 bg-white flex flex-col overflow-hidden">
             <div className="relative flex-1 min-h-0">
               <Image
@@ -107,8 +93,8 @@ export default function SlideMarketingPhotozone() {
               </div>
             </div>
           </Card>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0 }}

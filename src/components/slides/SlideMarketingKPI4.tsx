@@ -29,12 +29,7 @@ export default function SlideMarketingKPI4() {
         온라인 악센트 아이디 KPI
       </motion.h2>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="flex-1 flex items-center justify-center min-h-0"
-      >
+      <div className="flex-1 flex items-center justify-center min-h-0">
         <div className="relative w-full max-w-[90%] h-full rounded-2xl overflow-hidden border border-pink-100 shadow-lg shadow-pink-100/50 bg-white">
           <Image
             src="/images/m_4.png"
@@ -43,7 +38,7 @@ export default function SlideMarketingKPI4() {
             className="object-contain"
           />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -33,12 +33,7 @@ export default function SlideEventMonthly() {
       </motion.h2>
 
       {/* Chart image - b1 */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="flex-1 flex items-center justify-center"
-      >
+      <div className="flex-1 flex items-center justify-center">
         <div className="relative w-full max-w-[85%] h-full rounded-2xl overflow-hidden border border-pink-100 shadow-lg shadow-pink-100/50">
           <Image
             src="/images/b1.png"
@@ -47,7 +42,7 @@ export default function SlideEventMonthly() {
             className="object-contain"
           />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

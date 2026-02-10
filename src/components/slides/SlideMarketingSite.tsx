@@ -31,12 +31,7 @@ export default function SlideMarketingSite() {
 
       <div className="flex gap-8 flex-1 min-h-0">
         {/* Left: Site screenshot */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="w-[38%] flex items-center justify-center"
-        >
+        <div className="w-[38%] flex items-center justify-center">
           <div className="relative w-full h-full rounded-2xl overflow-hidden border border-pink-100 shadow-lg shadow-pink-100/50 bg-gray-50">
             <Image
               src="/images/m1.jpg"
@@ -45,7 +40,7 @@ export default function SlideMarketingSite() {
               className="object-contain"
             />
           </div>
-        </motion.div>
+        </div>
 
         {/* Right: Description */}
         <motion.div
