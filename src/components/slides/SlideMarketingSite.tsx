@@ -52,7 +52,7 @@ export default function SlideMarketingSite() {
           <div className="bg-pink-50 rounded-2xl p-5 border border-pink-100">
             <h3 className="text-sm font-bold text-pink-800 mb-2">UI/UX 기획</h3>
             <p className="text-sm text-pink-700 leading-relaxed">
-              개발팀과 함께 악센트 아이디 온라인 사이트의 UI와 UX를 기획하고 있습니다.
+              개발팀과 함께 악센트 아이디 온라인 사이트의 UI와 UX를 기획하였습니다.
             </p>
           </div>
 
