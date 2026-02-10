@@ -62,7 +62,7 @@ export default function SlideMarketingInfluencer() {
         >
           <motion.h2
             variants={item}
-            className="text-lg font-bold text-pink-900 mb-2 flex items-center gap-2"
+            className="text-xl font-bold text-pink-900 mb-2 flex items-center gap-2"
           >
             <span className="text-pink-500">&#9733;</span>
             인플루언서 협업
@@ -70,15 +70,15 @@ export default function SlideMarketingInfluencer() {
 
           <motion.div variants={item}>
             <Card className="p-3 border-pink-200 bg-pink-50/50 mb-2">
-              <h3 className="text-sm font-bold text-pink-800 mb-1.5">메시지 체계화</h3>
+              <h3 className="text-base font-bold text-pink-800 mb-1.5">메시지 체계화</h3>
               <div className="flex flex-wrap gap-1">
                 {["뿌리는덕질 디퓨저용", "뿌리는덕질 향수용", "일반 향수용", "온라인 향수용", "온라인 디퓨저용"].map((t) => (
-                  <span key={t} className="bg-white text-pink-600 text-[10px] px-2 py-0.5 rounded-full border border-pink-200">
+                  <span key={t} className="bg-white text-pink-600 text-xs px-2 py-0.5 rounded-full border border-pink-200">
                     {t}
                   </span>
                 ))}
               </div>
-              <p className="text-[10px] text-pink-500 mt-1.5">
+              <p className="text-xs text-pink-500 mt-1.5">
                 각 분류별로 지정 양식을 체계화하여 다양한 인플루언서들에게 송부 예정
               </p>
             </Card>
@@ -87,8 +87,8 @@ export default function SlideMarketingInfluencer() {
           <motion.div variants={item}>
             <Card className="p-3 border-pink-200 bg-pink-50/50 mb-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-pink-800">업로드 완료</span>
-                <span className="text-2xl font-bold text-pink-600">29<span className="text-sm font-normal text-pink-400 ml-0.5">건</span></span>
+                <span className="text-base font-medium text-pink-800">업로드 완료</span>
+                <span className="text-3xl font-bold text-pink-600">29<span className="text-base font-normal text-pink-400 ml-0.5">건</span></span>
               </div>
             </Card>
           </motion.div>
@@ -96,9 +96,9 @@ export default function SlideMarketingInfluencer() {
           {/* 바이럴 순위 TOP 10 */}
           <motion.h3
             variants={item}
-            className="text-sm font-bold text-pink-900 mb-1 flex items-center gap-1.5 mt-1"
+            className="text-base font-bold text-pink-900 mb-1 flex items-center gap-1.5 mt-1"
           >
-            <span className="text-pink-500 text-xs">&#9733;</span>
+            <span className="text-pink-500 text-sm">&#9733;</span>
             바이럴 순위 TOP 10
           </motion.h3>
 
@@ -110,7 +110,7 @@ export default function SlideMarketingInfluencer() {
                 className="flex items-center gap-1.5"
               >
                 <span
-                  className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold shrink-0 ${
+                  className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
                     d.rank <= 3
                       ? "bg-pink-500 text-white"
                       : "bg-pink-100 text-pink-600"
@@ -120,14 +120,14 @@ export default function SlideMarketingInfluencer() {
                 </span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-semibold text-pink-900 truncate">
+                    <span className="text-xs font-semibold text-pink-900 truncate">
                       {d.name}
                     </span>
-                    <span className="text-[11px] font-bold text-pink-600 shrink-0 ml-1">
+                    <span className="text-xs font-bold text-pink-600 shrink-0 ml-1">
                       {d.views}만
                     </span>
                   </div>
-                  <div className="w-full bg-pink-100 rounded-full h-1">
+                  <div className="w-full bg-pink-100 rounded-full h-1.5">
                     <motion.div
                       className={`h-full rounded-full ${
                         d.rank <= 3
@@ -157,7 +157,7 @@ export default function SlideMarketingInfluencer() {
         >
           <motion.h2
             variants={item}
-            className="text-lg font-bold text-pink-900 mb-2 flex items-center gap-2"
+            className="text-xl font-bold text-pink-900 mb-2 flex items-center gap-2"
           >
             <span className="text-pink-500">&#9733;</span>
             인플루언서 데이터
@@ -166,8 +166,8 @@ export default function SlideMarketingInfluencer() {
           <motion.div variants={item}>
             <Card className="p-3 border-pink-200 bg-pink-50/50 mb-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-pink-800">최근 2주간 업로드된 협업</span>
-                <span className="text-2xl font-bold text-pink-600">5<span className="text-sm font-normal text-pink-400 ml-0.5">건</span></span>
+                <span className="text-base font-medium text-pink-800">최근 2주간 업로드된 협업</span>
+                <span className="text-3xl font-bold text-pink-600">5<span className="text-base font-normal text-pink-400 ml-0.5">건</span></span>
               </div>
             </Card>
           </motion.div>
@@ -178,17 +178,17 @@ export default function SlideMarketingInfluencer() {
                 <Card className="p-3 border-pink-200 bg-white hover:bg-pink-50/30 transition-colors">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white text-sm font-bold shrink-0">
                         {d.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-pink-900">{d.name}</p>
-                        <p className="text-[11px] text-pink-400">팔로워 {d.followers}</p>
+                        <p className="text-base font-bold text-pink-900">{d.name}</p>
+                        <p className="text-xs text-pink-400">팔로워 {d.followers}</p>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-bold text-pink-600">조회수 {d.views}</p>
-                      <p className="text-[11px] text-pink-400">{d.date} 업로드</p>
+                      <p className="text-base font-bold text-pink-600">조회수 {d.views}</p>
+                      <p className="text-xs text-pink-400">{d.date} 업로드</p>
                     </div>
                   </div>
                 </Card>
